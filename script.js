@@ -48,7 +48,7 @@ greet.innerHTML = `<b>Hello, ${window.localStorage.getItem("name")} welcomeback!
 
 
 let productobj =[{
-    pname: "Nike Pegasus Premium",
+    pname: "Nike Pegasus",
     pimg: "./assets/nike.jpeg", 
     pdisc: "Men's Road Running Shoes",
     price: 220
@@ -57,40 +57,39 @@ let productobj =[{
     pname: "Air Max 90 LV8",
     pimg: "./assets/Nike1.jpeg",
     pdisc: "Men's Road Running Shoes",
-    price: 600
+    price: 400
 },
 {
     pname: "Nike Dunk Low Retro",
     pimg: "./assets/nike2.jpeg", 
     pdisc: "Men's Road Running Shoes",
-    price: 600
+    price: 300
 },
 {
     pname: "Sabrina 2 EP",
     pimg: "./assets/nike3.jpeg",
     pdisc: "Men's Road Running Shoes",
-    price: 600
+    price: 900
 },
 {
-    pname: "Nike Air Max Dn8",
+    pname: "Nike Air Jorden 1s",
     pimg: "./assets/nike4.jpeg",
     pdisc: "Men's Road Running Shoes",
-    price: 600
+    price: 1650
 },
 {
     pname: "Nike Air Max Dn8",
     pimg: "./assets/nike5.jpeg",
     pdisc: "Men's Road Running Shoes",
-    price: 600
+    price: 1000
 },
 {
-    pname: "Nike Air Max Dn8",
+    pname: "Nike Air Max Ks8",
     pimg: "./assets/nike6.jpeg",
     pdisc: "Men's Road Running Shoes",
     price: 600
 }]
 console.log(productobj);
-
 for(let i of productobj){
     let products = document.querySelector(".products")
     let product = document.createElement("div")
@@ -102,8 +101,7 @@ for(let i of productobj){
                 <p class="pname">${i.pname}</p>
                 <p class="pdisc">${i.pdisc}</p>
                 <p class="pcost">${i.price}</p>
-                <button>Add to Cart</button>
-        `
+                <button>Add to Cart</button>`
     products.appendChild(product)
 }
 
@@ -128,23 +126,25 @@ product.forEach((product)=>{
                                     </div>
                                     <div class="cart-pdetails">
                                         <p class="cart-pname">${name}</p>
-                                        <p id="pcost">${cost}</p>
+                                        <p id="pcost">${+cost}</p>
                                         <input class="cart-p-count" min="1" value="1" type="number">
                                         <button "class="cart-remove">Remove</button>
                                     </div>
                                 </div>`
             
             cartTotal()
+            
+            cartcount()
         }
     })
 })
 
 cartp.addEventListener("click",(e)=>{
-    console.log("jdgcvban");
     if(e.target.innerText == "Remove"){
         e.target.parentElement.parentElement.remove()
     }
     cartTotal()
+    cartcount()
 })
 
 function cartTotal(){
@@ -159,6 +159,15 @@ function cartTotal(){
     })
     totaltext.innerText = `Total : ${totalcost}`
 }
+ function cartcount(){
+    let cartcount = document.getElementById("cartcount")
+    cartcount.style.visibility = "visible"
+    cartcount.innerText = cartp.childElementCount
+    console.log(cartp.childElementCount);
+    if(cartp.childElementCount == 0){
+        cartcount.style.visibility = "hidden"
+    }
+ }
 
 let buy = document.getElementById("buy")
 buy.addEventListener("click",(e)=>{
