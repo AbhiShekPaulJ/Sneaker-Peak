@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register Page</title>
+  <link rel="stylesheet" href="./register.css">
+</head>
+<body>
+  <div class="container" id="container">
+    <div class="logo-box">📝</div>
+    <h2>Create an Account</h2>
+    <br>
+    <!-- <p>Join us and bring your ideas to life with collaboration and creativity</p><br> -->
+    
+    <div class="input-group">
+      <i>👤</i>
+      <input type="text" placeholder="Full Name" required id="name1">
+    </div>
+
+    <div class="input-group">
+      <i>📧</i>
+      <input type="email" placeholder="Email" required id="email1">
+    </div>
+
+    <div class="input-group">
+      <i>📞</i>
+      <input type="tel" placeholder="Phone Number" required id="phone1">
+    </div>
+
+    <div class="input-group">
+      <i>🔒</i>
+      <input type="password" placeholder="Password" required id="password1">
+    </div>
+    <div class="input-group">
+      <i>🔒</i>
+      <input type="password" placeholder=" Re-enter Password" required id="password2">
+    </div>
+    <div id="already">
+        <p>Already Registered?</p>
+        <button onclick="loginherebtn()" id="loginhere">Login Here</button>
+    </div>
+    <button  class="btn" id="rbtn">Register</button>
+    <p id="empty"></p>
+  </div>
+
+  <script src="./register.js"></script>
+  <!-- <script src=></script> -->
+</body>
+</html>
+
